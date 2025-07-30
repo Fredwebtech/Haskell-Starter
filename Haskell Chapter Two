@@ -1,0 +1,99 @@
+-- HC2T1 - Task 1: Checking Types in GHCi
+-- Expected Types:
+-- 42               :: Num a => a
+-- 3.14             :: Fractional a => a
+-- "Haskell"        :: [Char]
+-- 'Z'              :: Char
+-- True && False    :: Bool
+
+-- HC2T2 - Task 2: Function Type Signatures and Implementations
+add :: Int -> Int -> Int
+add x y = x + y
+
+isEven :: Int -> Bool
+isEven x = x `mod` 2 == 0
+
+concatStrings :: String -> String -> String
+concatStrings s1 s2 = s1 ++ s2
+
+-- HC2T3 - Task 3: Immutable Variables
+myAge :: Int
+myAge = 25
+
+piValue :: Double
+piValue = 3.14159
+
+greeting :: String
+greeting = "Hello, Haskell!"
+
+isHaskellFun :: Bool
+isHaskellFun = True
+
+-- Attempting to modify immutable variable (this will cause an error if uncommented)
+-- myAge = 30  -- Error: Multiple declarations of 'myAge'
+
+-- HC2T4 - Task 4: Converting Between Infix and Prefix Notations
+-- Infix to Prefix:
+-- 5 + 3           => (+) 5 3
+-- 10 * 4          => (*) 10 4
+-- True && False   => (&&) True False
+
+-- Prefix to Infix:
+-- (+) 7 2         => 7 + 2
+-- (*) 6 5         => 6 * 5
+-- (&&) True False => True && False
+
+-- HC2T5 - Task 5: Defining and Using Functions
+circleArea :: Float -> Float
+circleArea r = pi * r * r
+
+maxOfThree :: Int -> Int -> Int -> Int
+maxOfThree a b c = max a (max b c)
+
+-- HC2T6 - Task 6: Understanding Int vs Integer
+smallNumber :: Int
+smallNumber = 262
+
+bigNumber :: Integer
+bigNumber = 2127
+
+-- In GHCi:
+-- Evaluate: 2^64 :: Int
+-- Result: may cause overflow depending on system (Int max = 2^63 - 1 on 64-bit)
+
+-- HC2T7 - Task 7: Boolean Expressions
+boolExpr1 :: Bool
+boolExpr1 = True && True     -- evaluates to True
+
+boolExpr2 :: Bool
+boolExpr2 = False || False   -- evaluates to False
+
+boolExpr3 :: Bool
+boolExpr3 = not False        -- evaluates to True
+
+boolExpr4 :: Bool
+boolExpr4 = 10 > 20          -- evaluates to False
+
+-- Main function to test outputs
+main :: IO ()
+main = do
+    putStrLn "\n-- HC2T2 - Function Tests --"
+    print (add 3 4)
+    print (isEven 6)
+    print (concatStrings "Hello, " "world!")
+
+    putStrLn "\n-- HC2T3 - Immutable Variables --"
+    print myAge
+    print piValue
+    print greeting
+    print isHaskellFun
+
+    putStrLn "\n-- HC2T5 - Function Tests --"
+    print (circleArea 5.0)
+    print (maxOfThree 12 18 15)
+
+    putStrLn "\n-- HC2T7 - Boolean Expressions --"
+    print boolExpr1
+    print boolExpr2
+    print boolExpr3
+    print boolExpr4
